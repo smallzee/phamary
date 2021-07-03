@@ -274,12 +274,12 @@ if(isset($_GET['id'])){
 						tr.attr('data-id',product)
 						tr.find('.pname b').html($("#product option[value='"+product+"']").attr('data-name')+"<sup>"+$("#product option[value='"+product+"']").attr('data-measurement')+"</sup>")
 						tr.find('.pdesc b').html($("#product option[value='"+product+"']").attr('data-description'))
-						tr.find('.price').html(resp.price)
+						tr.find('.price').html("#"+resp.price)
 						tr.find('[name="product_id[]"]').val(product)
 						tr.find('[name="qty[]"]').val(qty)
 						tr.find('[name="price[]"]').val(resp.price)
 						var amount = parseFloat(price) * parseFloat(qty);
-						tr.find('.amount').html(parseFloat(amount).toLocaleString('en-US',{style:'decimal',maximumFractionDigits:2,minimumFractionDigits:2}))
+						tr.find('.amount').html("#"+parseFloat(amount).toLocaleString('en-US',{style:'decimal',maximumFractionDigits:2,minimumFractionDigits:2}))
 						$('#list tbody').append(tr)
 						calculate_total()
 						$('[name="qty[]"],[name="price[]"]').keyup(function(){
@@ -304,11 +304,11 @@ if(isset($_GET['id'])){
 			var _this = $(this).closest('tr')
 		var amount = parseFloat(_this.find('[name="qty[]"]').val()) * parseFloat(_this.find('[name="price[]"]').val());
 		amount = amount > 0 ? amount :0;
-		_this.find('p.amount').html(parseFloat(amount).toLocaleString('en-US',{style:'decimal',maximumFractionDigits:2,minimumFractionDigits:2}))
+		_this.find('p.amount').html("#"+parseFloat(amount).toLocaleString('en-US',{style:'decimal',maximumFractionDigits:2,minimumFractionDigits:2}))
 		total+=parseFloat(amount);
 		})
 		$('[name="tamount"]').val(total)
-		$('#list .tamount').html(parseFloat(total).toLocaleString('en-US',{style:'decimal',maximumFractionDigits:2,minimumFractionDigits:2}))
+		$('#list .tamount').html("#"+parseFloat(total).toLocaleString('en-US',{style:'decimal',maximumFractionDigits:2,minimumFractionDigits:2}))
 	}
 	$('[name="amount_tendered"]').keyup(function(){
 		var tendered = $(this).val();

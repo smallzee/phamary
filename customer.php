@@ -67,7 +67,7 @@
 										<p><small>Address : <b><?php echo $row['address'] ?></b></small></p>
 									</td>
 									<td class="text-center">
-										<button class="btn btn-sm btn-primary edit_customer" type="button" data-id="<?php echo $row['id'] ?>" data-name="<?php echo $row['name'] ?>" data-contact="<?php echo $row['contact'] ?>" data-address="<?php echo $row['address'] ?>" >Edit</button>
+<!--										<button class="btn btn-sm btn-primary edit_customer" type="button" data-id="--><?php //echo $row['id'] ?><!--" data-name="--><?php //echo $row['name'] ?><!--" data-contact="--><?php //echo $row['contact'] ?><!--" data-address="--><?php //echo $row['address'] ?><!--" >Edit</button>-->
 										<button class="btn btn-sm btn-danger delete_customer" type="button" data-id="<?php echo $row['id'] ?>">Delete</button>
 									</td>
 								</tr>

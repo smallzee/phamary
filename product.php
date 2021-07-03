@@ -161,7 +161,7 @@
 										
 									</td>
 									<td class="text-center">
-										<button class="btn btn-sm btn-primary edit_product" type="button" data-id="<?php echo $row['id'] ?>" data-name="<?php echo $row['name'] ?>" data-sku="<?php echo $row['sku'] ?>" data-category_id="<?php echo $row['category_id'] ?>" data-description="<?php echo $row['description'] ?>" data-price="<?php echo $row['price'] ?>" data-type_id="<?php echo $row['type_id'] ?>" data-price="<?php echo $row['price'] ?>" data-measurement="<?php echo $row['measurement'] ?>" data-price="<?php echo $row['price'] ?>" >Edit</button>
+<!--										<button class="btn btn-sm btn-primary edit_product" type="button" data-id="--><?php //echo $row['id'] ?><!--" data-name="--><?php //echo $row['name'] ?><!--" data-sku="--><?php //echo $row['sku'] ?><!--" data-category_id="--><?php //echo $row['category_id'] ?><!--" data-description="--><?php //echo $row['description'] ?><!--" data-price="--><?php //echo $row['price'] ?><!--" data-type_id="--><?php //echo $row['type_id'] ?><!--" data-price="--><?php //echo $row['price'] ?><!--" data-measurement="--><?php //echo $row['measurement'] ?><!--" data-price="--><?php //echo $row['price'] ?><!--" >Edit</button>-->
 										<button class="btn btn-sm btn-danger delete_product" type="button" data-id="<?php echo $row['id'] ?>">Delete</button>
 									</td>
 								</tr>
