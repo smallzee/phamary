@@ -9,12 +9,24 @@
 			<form action="" id="manage-customer">
 				<div class="card">
 					<div class="card-header">
-						    Customer Form
+						    Student Information
 				  	</div>
 					<div class="card-body">
 							<input type="hidden" name="id">
+                        <div class="form-group">
+                            <label class="control-label">Matric Number</label>
+                            <input type="text" class="form-control" name="matric">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Department</label>
+                            <input type="text" class="form-control" name="dept">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Level</label>
+                            <input type="text" class="form-control" name="level">
+                        </div>
 							<div class="form-group">
-								<label class="control-label">Customer Name</label>
+								<label class="control-label">Name</label>
 								<input type="text" class="form-control" name="name">
 							</div>
 							<div class="form-group">
@@ -49,7 +61,7 @@
 							<thead>
 								<tr>
 									<th class="text-center">#</th>
-									<th class="text-center">Customer</th>
+									<th class="text-center">Student Details</th>
 									<th class="text-center">Action</th>
 								</tr>
 							</thead>
@@ -62,6 +74,9 @@
 								<tr>
 									<td class="text-center"><?php echo $i++ ?></td>
 									<td class="">
+                                        <p>Matric Number : <b><?php echo $row['matric'] ?></b></p>
+                                        <p>Dept. : <b><?php echo $row['dept'] ?></b></p>
+                                        <p>Level : <b><?php echo $row['level'] ?></b></p>
 										<p>Name : <b><?php echo $row['name'] ?></b></p>
 										<p><small>Contact : <b><?php echo $row['contact'] ?></b></small></p>
 										<p><small>Address : <b><?php echo $row['address'] ?></b></small></p>

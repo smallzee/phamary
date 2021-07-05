@@ -58,8 +58,6 @@ $query = $conn->query("SELECT * FROM system_settings limit 1")->fetch_array();
 	.logo {
     margin: auto;
     font-size: 8rem;
-    background: white;
-    padding: .5em 0.9em;
     border-radius: 50% 50%;
     color: red;
 }
@@ -71,11 +69,14 @@ $query = $conn->query("SELECT * FROM system_settings limit 1")->fetch_array();
   <main id="main" class=" bg-dark">
   		<div id="login-left">
   			<div class="logo">
-  				<span class="fa fa-prescription-bottle-alt"></span>
+<!--  				<span class="fa fa-prescription-bottle-alt"></span>-->
+                <img src="assets/logo.png" alt="">
   			</div>
   		</div>
   		<div id="login-right">
-  			<div class="card col-md-8">
+            <div class="col-md-12">
+  			    <div class="card">
+                <div class="card-header">Login</div>
   				<div class="card-body">
   					<form id="login-form" >
   						<div class="form-group">
@@ -90,6 +91,7 @@ $query = $conn->query("SELECT * FROM system_settings limit 1")->fetch_array();
   					</form>
   				</div>
   			</div>
+            </div>
   		</div>
    
 

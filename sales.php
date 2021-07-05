@@ -16,26 +16,39 @@
 								<th class="text-center">#</th>
 								<th class="text-center">Date</th>
 								<th class="text-center">Reference #</th>
-								<th class="text-center">Customer</th>
+                                <th class="text-center">Matric</th>
+								<th class="text-center">Name</th>
+                                <th class="text-center">Dept</th>
+                                <th class="text-center">Level</th>
 								<th class="text-center">Action</th>
 							</thead>
 							<tbody>
 							<?php 
 								$customer = $conn->query("SELECT * FROM customer_list order by name asc");
 								while($row=$customer->fetch_assoc()):
-									$cus_arr[$row['id']] = $row['name'];
+									$cus_arr[$row['id']] = array(
+                                        'name'=>$row['name'],
+                                        'dept'=>$row['dept'],
+                                        'matric'=>$row['matric'],
+                                        'level'=>$row['level']
+                                    );
 								endwhile;
 									$cus_arr[0] = "GUEST";
 
 								$i = 1;
 								$sales = $conn->query("SELECT * FROM sales_list  order by date(date_updated) desc");
 								while($row=$sales->fetch_assoc()):
-							?>
+
+
+                                    ?>
 								<tr>
 									<td class="text-center"><?php echo $i++ ?></td>
 									<td class=""><?php echo date("M d, Y",strtotime($row['date_updated'])) ?></td>
 									<td class=""><?php echo $row['ref_no'] ?></td>
-									<td class=""><?php echo isset($cus_arr[$row['customer_id']])? $cus_arr[$row['customer_id']] :'N/A' ?></td>
+									<td class=""><?php echo isset($cus_arr[$row['customer_id']])? $cus_arr[$row['customer_id']]['matric'] :'N/A' ?></td>
+                                    <td class=""><?php echo isset($cus_arr[$row['customer_id']])? $cus_arr[$row['customer_id']]['name'] :'N/A' ?></td>
+                                    <td class=""><?php echo isset($cus_arr[$row['customer_id']])? $cus_arr[$row['customer_id']]['dept'] :'N/A' ?></td>
+                                    <td class=""><?php echo isset($cus_arr[$row['customer_id']])? $cus_arr[$row['customer_id']]['level'] :'N/A' ?></td>
 									<td class="text-center">
 										<a class="btn btn-sm btn-primary" href="index.php?page=pos&id=<?php echo $row['id'] ?>">Edit</a>
 										<a class="btn btn-sm btn-danger delete_sales" href="javascript:void(0)" data-id="<?php echo $row['id'] ?>">Delete</a>

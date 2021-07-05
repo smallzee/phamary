@@ -1,24 +1,14 @@
-<style>
-	.logo {
-    margin: auto;
-    font-size: 20px;
-    background: white;
-    padding: 5px 13px;
-    border-radius: 50% 50%;
-    color: #000000b3;
-}
-</style>
-
 <nav class="navbar navbar-expand-lg navbar-dark  fixed-top bg-primary" style="padding:0;">
   <div class="container-fluid mt-2 mb-2">
   	<div class="col-lg-12">
   		<div class="col-md-1 float-left" style="display: flex;">
   			<div class="logo">
-  				<i class="fa fa-prescription-bottle-alt"></i>
+<!--  				<i class="fa fa-prescription-bottle-alt"></i>-->
+                <img src="assets/logo.png" style="width: 50px; height: 50px;" alt="">
   			</div>
   		</div>
       <div class="col-md-4 float-left text-white">
-        <large><b>Pharmacy Sales and Inventory System</b></large>
+        <large><b>The Federal Polytechnic Ede, Osun State</b></large>
       </div>
       <div class="float-right">
   	  	<div class=" dropdown mr-4">

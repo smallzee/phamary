@@ -54,7 +54,7 @@ $product = $conn->query("SELECT * FROM product_list  order by name asc");
 			
 				<tr>
 					<th class="text-center">
-						<p><b>Pharmacy Sales and Inventory System</b></p>
+						<p><b>The Federal Polytechnic Ede, Osun State</b></p>
 						<p>
 							<b>Unofficial Receipt</b>
 						</p>
@@ -70,10 +70,10 @@ $product = $conn->query("SELECT * FROM product_list  order by name asc");
 				<tr>
 					<table width="100%">
 						<tr>
-							<th width="5%" class="wborder"></th>
-							<th width="30%" class="wborder text-left">Product</th>
 							<th width="10%" class="wborder"></th>
-							<th width="25%" class="wborder">Amount</th>
+							<th width="45%" class="wborder text-left">Product</th>
+							<th width="45%" class="wborder">Quantity</th>
+<!--							<th width="25%" class="wborder">Amount</th>-->
 						</tr>
 						<?php 
 						while($row = $inv->fetch_assoc()): 
@@ -89,23 +89,23 @@ $product = $conn->query("SELECT * FROM product_list  order by name asc");
 								<?php echo $prod[$row['product_id']]['name'] ?><sup><?php echo $prod[$row['product_id']]['measurement'] ?></sup>  <span><small><?php echo $row['qty'] > 1 ? "(".(number_format($row['price'],2)).")" : "" ?></small></span>
 								
 							</td>
-							<td class="wborder text-right"></td>
-							<td class="wborder text-right"><?php echo number_format($row['price'] * $row['qty'],2) ?></td>
+<!--							<td class="wborder text-right"></td>-->
+							<td class="wborder text-right"><?php echo $row['qty'] ?></td>
 
 						</tr>
 						<?php endwhile;?>
-						<tr>
-							<th class="text-right wborder" colspan="3">Total</th>
-							<th class="text-right wborder" ><?php echo number_format($total_amount,2) ?></th>
-						</tr>
-						<tr>
-							<th class="text-right wborder" colspan="3">Amount Tendered</th>
-							<th class="text-right wborder" ><?php echo number_format($amount_tendered,2) ?></th>
-						</tr>
-						<tr>
-							<th class="text-right wborder" colspan="3">Change</th>
-							<th class="text-right wborder" ><?php echo number_format($amount_change,2) ?></th>
-						</tr>
+<!--						<tr>-->
+<!--							<th class="text-right wborder" colspan="3">Total</th>-->
+<!--							<th class="text-right wborder" >--><?php //echo number_format($total_amount,2) ?><!--</th>-->
+<!--						</tr>-->
+<!--						<tr>-->
+<!--							<th class="text-right wborder" colspan="3">Amount Tendered</th>-->
+<!--							<th class="text-right wborder" >--><?php //echo number_format($amount_tendered,2) ?><!--</th>-->
+<!--						</tr>-->
+<!--						<tr>-->
+<!--							<th class="text-right wborder" colspan="3">Change</th>-->
+<!--							<th class="text-right wborder" >--><?php //echo number_format($amount_change,2) ?><!--</th>-->
+<!--						</tr>-->
 					</table>
 				</tr>
 				<tr>

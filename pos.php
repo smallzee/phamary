@@ -23,15 +23,14 @@ if(isset($_GET['id'])){
 					<div class="col-md-12">
 						<div class="row">
 							<div class="form-group col-md-5">
-								<label class="control-label">Customer</label>
+								<label class="control-label">Students</label>
 								<select name="customer_id" id="" class="custom-select browser-default select2">
-									<option value="0" selected="">Guest</option>
 								<?php 
 
 								$customer = $conn->query("SELECT * FROM customer_list order by name asc");
 								while($row=$customer->fetch_assoc()):
 								?>
-									<option value="<?php echo $row['id'] ?>"><?php echo $row['name'] ?></option>
+									<option value="<?php echo $row['id'] ?>"><?php echo $row['matric']." (". $row['name']." )" ?></option>
 								<?php endwhile; ?>
 								</select>
 							</div>
@@ -70,19 +69,16 @@ if(isset($_GET['id'])){
 						<div class="row">
 							<table class="table table-bordered" id="list">
 								<colgroup>
-									<col width="30%">
-									<col width="10%">
-									<col width="25%">
-									<col width="25%">
-									<col width="10%">
+									<col width="50%">
+									<col width="50%">
 								</colgroup>
 								<thead>
 									<tr>
 										<th class="text-center">Product</th>
 										<th class="text-center">Qty</th>
-										<th class="text-center">Price</th>
-										<th class="text-center">Amount</th>
-										<th class="text-center"></th>
+<!--										<th class="text-center">Price</th>-->
+<!--										<th class="text-center">Amount</th>-->
+<!--										<th class="text-center"></th>-->
 									</tr>
 								</thead>
 								<tbody>
@@ -104,12 +100,12 @@ if(isset($_GET['id'])){
 												<input type="number" min="1" step="any" name="qty[]" value="<?php echo $row['qty'] ?>" class="text-right">
 											</td>
 											<td>
-												<input type="hidden" min="1" step="any" name="price[]" value="<?php echo $row['price'] ?>" class="text-right">
-												<p class="text-right"><?php echo $row['price'] ?></p>
-											</td>
-											<td>
-												<p class="amount text-right"></p>
-											</td>
+<!--												<input type="hidden" min="1" step="any" name="price[]" value="--><?php //echo $row['price'] ?><!--" class="text-right">-->
+<!--												<p class="text-right">--><?php //echo $row['price'] ?><!--</p>-->
+<!--											</td>-->
+<!--											<td>-->
+<!--												<p class="amount text-right"></p>-->
+<!--											</td>-->
 											<td class="text-center">
 												<buttob class="btn btn-sm btn-danger" onclick = "rem_list($(this))"><i class="fa fa-trash"></i></buttob>
 											</td>
@@ -117,18 +113,18 @@ if(isset($_GET['id'])){
 									<?php endwhile; ?>
 									<?php endif; ?>
 								</tbody>
-								<tfoot>
-									<tr>
-										<th class="text-right" colspan="3">Total</th>
-										<th class="text-right tamount"></th>
-										<th></th>
-									</tr>
-								</tfoot>
+<!--								<tfoot>-->
+<!--									<tr>-->
+<!--										<th class="text-right" colspan="3">Total</th>-->
+<!--										<th class="text-right tamount"></th>-->
+<!--										<th></th>-->
+<!--									</tr>-->
+<!--								</tfoot>-->
 							</table>
 						</div>
 						<div class="row">
 							<div class="col-lg-12">
-								<button class="btn btn-primary col-sm-3 btn-sm btn-block float-right " type="button" id="pay">Pay</button>
+								<button class="btn btn-primary col-sm-3 btn-sm btn-block float-right " type="button" id="pay2" onclick="$('#manage-sales').submit()">Submit</button>
 							</div>
 						</div>
 					</div>
@@ -181,11 +177,11 @@ if(isset($_GET['id'])){
 		</td>
 		<td>
 			<input type="hidden" min="1" step="any" name="price[]" value="" class="text-right" readonly="">
-			<p class="price text-right">0</p>
+<!--			<p class="price text-right">0</p>-->
 		</td>
-		<td>
-			<p class="amount text-right"></p>
-		</td>
+<!--		<td>-->
+<!--			<p class="amount text-right"></p>-->
+<!--		</td>-->
 		<td class="text-center">
 			<buttob class="btn btn-sm btn-danger" onclick = "rem_list($(this))"><i class="fa fa-trash"></i></buttob>
 		</td>

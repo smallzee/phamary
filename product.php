@@ -135,7 +135,7 @@
 									$carr = explode(",", $row['category_id']);
 									foreach($carr as $k => $v){
 										if(empty($cat)){
-											$cat = $cat_arr[$v];
+											@$cat = $cat_arr[$v];
 										}else{
 											$cat .= ', '.$cat_arr[$v];
 										}

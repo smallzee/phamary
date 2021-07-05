@@ -301,9 +301,16 @@ Class Action {
 	}
 	function save_customer(){
 		extract($_POST);
+//		$matric = $_POST['matric'];
+//		$dept = $_POST['dept'];
+//		$level = $_POST['level'];
+
 		$data = " name = '$name' ";
 		$data .= ", contact = '$contact' ";
 		$data .= ", address = '$address' ";
+		$data .= ", matric ='$matric'";
+		$data .=", dept = '$dept'";
+		$data .=", level = '$level'";
 		if(empty($id)){
 			$save = $this->db->query("INSERT INTO customer_list set ".$data);
 		}else{
