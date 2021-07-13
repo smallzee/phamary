@@ -86,8 +86,9 @@ $product = $conn->query("SELECT * FROM product_list  order by name asc");
 								<?php echo $row['qty'] ?>
 							</td>
 							<td class="wborder">
-								<?php echo $prod[$row['product_id']]['name'] ?><sup><?php echo $prod[$row['product_id']]['measurement'] ?></sup>  <span><small><?php echo $row['qty'] > 1 ? "(".(number_format($row['price'],2)).")" : "" ?></small></span>
-								
+								<?php echo @$prod[$row['product_id']]['name'] ?>
+                                <sup><?php echo @$prod[$row['product_id']]['measurement'] ?></sup>  <span><small><?php echo $row['qty'] > 1 ? "(".(number_format($row['price'],2)).")" : "" ?></small></span>
+
 							</td>
 <!--							<td class="wborder text-right"></td>-->
 							<td class="wborder text-right"><?php echo $row['qty'] ?></td>

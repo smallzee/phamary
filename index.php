@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Pharmacy Sales and Inventory System</title>
+  <title>The Federal Polytechnic Ede, Osun State</title>
  	
 
 <?php

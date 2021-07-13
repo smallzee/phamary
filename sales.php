@@ -7,8 +7,8 @@
 			<div class="col-md-12">
 				<div class="card">
 					<div class="card-header">
-						<b>Sales List</b>
-			<button class="col-md-2 float-right btn btn-primary btn-sm" id="new_sales"><i class="fa fa-plus"></i> New Sales</button>
+						<b>Drug Obtained</b>
+			<button class="col-md-2 float-right btn btn-primary btn-sm" id="new_sales"><i class="fa fa-plus"></i> Obtain Drug</button>
 					</div>
 					<div class="card-body">
 						<table class="table table-bordered">
@@ -16,6 +16,8 @@
 								<th class="text-center">#</th>
 								<th class="text-center">Date</th>
 								<th class="text-center">Reference #</th>
+                                <th class="text-center">Drug Name</th>
+                                <th class="text-center">Qty</th>
                                 <th class="text-center">Matric</th>
 								<th class="text-center">Name</th>
                                 <th class="text-center">Dept</th>
@@ -45,6 +47,15 @@
 									<td class="text-center"><?php echo $i++ ?></td>
 									<td class=""><?php echo date("M d, Y",strtotime($row['date_updated'])) ?></td>
 									<td class=""><?php echo $row['ref_no'] ?></td>
+                                    <td class="">
+                                        <?php
+                                        $product_id = $row['product_id'];
+                                            $product = $conn->query("SELECT * FROM product_list WHERE id ='$product_id'");
+                                            $product_data = $product->fetch_assoc();
+                                            echo $product_data['name']
+                                        ?>
+                                    </td>
+                                    <td class=""><?= $row['qty'] ?></td>
 									<td class=""><?php echo isset($cus_arr[$row['customer_id']])? $cus_arr[$row['customer_id']]['matric'] :'N/A' ?></td>
                                     <td class=""><?php echo isset($cus_arr[$row['customer_id']])? $cus_arr[$row['customer_id']]['name'] :'N/A' ?></td>
                                     <td class=""><?php echo isset($cus_arr[$row['customer_id']])? $cus_arr[$row['customer_id']]['dept'] :'N/A' ?></td>

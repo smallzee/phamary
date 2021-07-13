@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jul 03, 2021 at 07:03 PM
+-- Generation Time: Jul 13, 2021 at 07:33 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.3.22
 
@@ -51,7 +51,10 @@ INSERT INTO `category_list` (`id`, `name`) VALUES
 
 CREATE TABLE `customer_list` (
   `id` int(30) NOT NULL,
+  `matric` varchar(50) NOT NULL,
   `name` text NOT NULL,
+  `dept` varchar(100) NOT NULL,
+  `level` varchar(50) NOT NULL,
   `contact` varchar(30) NOT NULL,
   `address` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -60,9 +63,8 @@ CREATE TABLE `customer_list` (
 -- Dumping data for table `customer_list`
 --
 
-INSERT INTO `customer_list` (`id`, `name`, `contact`, `address`) VALUES
-(1, 'Sample Customer', '+123456789', 'Sample address'),
-(2, 'Mr badmus ojoo', '07056872129', 'Rombay hosiptal');
+INSERT INTO `customer_list` (`id`, `matric`, `name`, `dept`, `level`, `contact`, `address`) VALUES
+(1, 'cs201405212pt', 'adekunle sulaimon', 'computer science', 'nd2dpt', '07056872129', 'rombay');
 
 -- --------------------------------------------------------
 
@@ -110,20 +112,27 @@ CREATE TABLE `inventory` (
 --
 
 INSERT INTO `inventory` (`id`, `product_id`, `qty`, `type`, `stock_from`, `form_id`, `expiry_date`, `expired_confirmed`, `other_details`, `remarks`, `date_updated`) VALUES
-(1, 3, 500, 1, 'receiving', 1, '2021-12-03', 0, '{\"price\":\"5\",\"qty\":\"500\"}', 'Stock from Receiving-83386962\r\n', '2020-10-08 10:55:21'),
-(2, 2, 500, 1, 'receiving', 1, '2021-11-11', 0, '{\"price\":\"5\",\"qty\":\"500\"}', 'Stock from Receiving-83386962\r\n', '2020-10-08 10:55:21'),
-(3, 6, 300, 1, 'receiving', 1, '2021-10-06', 0, '{\"price\":\"20\",\"qty\":\"300\"}', 'Stock from Receiving-83386962\r\n', '2020-10-08 10:55:21'),
-(4, 5, 300, 1, 'receiving', 1, '2021-11-09', 0, '{\"price\":\"10\",\"qty\":\"300\"}', 'Stock from Receiving-83386962\r\n', '2020-10-08 10:55:21'),
 (5, 4, 500, 1, 'receiving', 2, '2022-10-14', 0, '{\"price\":\"8\",\"qty\":\"500\"}', 'Stock from Receiving-00000000\n', '2020-10-08 11:03:36'),
 (6, 6, 10, 1, 'receiving', 2, '2020-10-05', 1, '{\"price\":\"18\",\"qty\":\"10\"}', 'Stock from Receiving-00000000\n', '2020-10-09 08:20:00'),
-(8, 3, 1, 2, 'Sales', 2, '0000-00-00', 0, '{\"price\":\"10\",\"qty\":\"1\"}', 'Stock out from Sales-00000000\n', '2020-10-08 13:23:13'),
-(9, 5, 20, 2, 'Sales', 2, '0000-00-00', 0, '{\"price\":\"15\",\"qty\":\"20\"}', 'Stock out from Sales-00000000\n', '2020-10-08 13:23:13'),
-(10, 3, 20, 2, 'Sales', 3, '0000-00-00', 0, '{\"price\":\"10\",\"qty\":\"20\"}', 'Stock out from Sales-74800422\n', '2020-10-08 13:42:29'),
 (11, 3, 10, 2, 'Sales', 4, '0000-00-00', 0, '{\"price\":\"10\",\"qty\":\"10\"}', 'Stock out from Sales-01966403\n', '2020-10-08 13:43:08'),
 (12, 8, 500, 1, 'receiving', 3, '2021-04-29', 0, '{\"price\":\"10\",\"qty\":\"500\"}', 'Stock from Receiving-95300488\n', '2020-10-09 08:17:29'),
 (13, 8, 10, 2, 'Sales', 5, '0000-00-00', 0, '{\"price\":\"15\",\"qty\":\"10\"}', 'Stock out from Sales-16232790\n', '2020-10-09 08:19:04'),
 (14, 3, 10, 2, 'Sales', 5, '0000-00-00', 0, '{\"price\":\"10\",\"qty\":\"10\"}', 'Stock out from Sales-16232790\n', '2020-10-09 08:19:04'),
-(15, 5, 1, 2, 'Sales', 7, '0000-00-00', 0, '{\"price\":\"15\",\"qty\":\"1\"}', 'Stock out from Sales-58879537\n', '2021-07-03 14:01:51');
+(15, 5, 1, 2, 'Sales', 7, '0000-00-00', 0, '{\"price\":\"15\",\"qty\":\"1\"}', 'Stock out from Sales-58879537\n', '2021-07-03 14:01:51'),
+(19, 5, 11, 2, 'Sales', 4, '0000-00-00', 0, '{\"price\":\"15\",\"qty\":\"11\"}', 'Stock out from Sales-08418244\n', '2021-07-05 11:54:20'),
+(20, 6, 2, 2, 'Sales', 5, '0000-00-00', 0, '{\"price\":\"30\",\"qty\":\"2\"}', 'Stock out from Sales-22656037\n', '2021-07-05 11:54:49'),
+(21, 5, 1, 2, 'Sales', 6, '0000-00-00', 0, '{\"price\":\"15\",\"qty\":\"1\"}', 'Stock out from Sales-29564146\n', '2021-07-05 11:55:12'),
+(22, 5, 1, 2, 'Sales', 7, '0000-00-00', 0, '{\"price\":\"15\",\"qty\":\"1\"}', 'Stock out from Sales-99315739\n', '2021-07-05 11:55:32'),
+(23, 4, 1, 2, 'Sales', 8, '0000-00-00', 0, '{\"price\":\"10\",\"qty\":\"1\"}', 'Stock out from Sales-05074951\n', '2021-07-05 11:55:41'),
+(24, 4, 1, 2, 'Sales', 9, '0000-00-00', 0, '{\"price\":\"10\",\"qty\":\"1\"}', 'Stock out from Sales-54932049\n', '2021-07-05 11:57:17'),
+(25, 5, 1, 2, 'Sales', 10, '0000-00-00', 0, '{\"price\":\"15\",\"qty\":\"1\"}', 'Stock out from Sales-09500226\n', '2021-07-05 12:00:39'),
+(26, 5, 1, 2, 'Sales', 11, '0000-00-00', 0, '{\"price\":\"15\",\"qty\":\"1\"}', 'Stock out from Sales-83617895\n', '2021-07-05 12:01:11'),
+(27, 4, 1, 2, 'Sales', 12, '0000-00-00', 0, '{\"price\":\"10\",\"qty\":\"1\"}', 'Stock out from Sales-91836857\n', '2021-07-05 12:01:37'),
+(28, 5, 1, 2, 'Sales', 13, '0000-00-00', 0, '{\"price\":\"15\",\"qty\":\"1\"}', 'Stock out from Sales-49689536\n', '2021-07-05 12:10:56'),
+(29, 5, 1, 2, 'Sales', 14, '0000-00-00', 0, '{\"price\":\"15\",\"qty\":\"1\"}', 'Stock out from Sales-52280465\n', '2021-07-05 12:11:27'),
+(30, 5, 1, 2, 'Sales', 15, '0000-00-00', 0, '{\"price\":\"15\",\"qty\":\"1\"}', 'Stock out from Sales-39659214\n', '2021-07-05 12:12:48'),
+(31, 8, 11, 2, 'Sales', 15, '0000-00-00', 0, '{\"price\":\"15\",\"qty\":\"11\"}', 'Stock out from Sales-39659214\n', '2021-07-05 12:12:48'),
+(32, 4, 1, 2, 'Sales', 16, '0000-00-00', 0, '{\"price\":\"10\",\"qty\":\"1\"}', 'Stock out from Sales-26986942\n', '2021-07-05 12:17:39');
 
 -- --------------------------------------------------------
 
@@ -186,6 +195,8 @@ INSERT INTO `receiving_list` (`id`, `ref_no`, `supplier_id`, `total_amount`, `da
 CREATE TABLE `sales_list` (
   `id` int(30) NOT NULL,
   `ref_no` varchar(30) NOT NULL,
+  `product_id` int(11) NOT NULL,
+  `qty` double NOT NULL,
   `customer_id` int(30) NOT NULL,
   `total_amount` double NOT NULL,
   `amount_tendered` double NOT NULL,
@@ -197,13 +208,10 @@ CREATE TABLE `sales_list` (
 -- Dumping data for table `sales_list`
 --
 
-INSERT INTO `sales_list` (`id`, `ref_no`, `customer_id`, `total_amount`, `amount_tendered`, `amount_change`, `date_updated`) VALUES
-(2, '00000000\n', 0, 310, 400, 90, '2020-10-08 13:23:13'),
-(3, '74800422\n', 0, 200, 200, 0, '2020-10-08 13:42:29'),
-(4, '01966403\n', 0, 100, 100, 0, '2020-10-08 13:43:08'),
-(5, '16232790\n', 1, 250, 300, 50, '2020-10-09 08:19:04'),
-(6, '39814302\n', 0, 10, 1000, 990, '2021-06-29 12:41:23'),
-(7, '58879537\n', 2, 15, 150, 135, '2021-07-03 14:01:51');
+INSERT INTO `sales_list` (`id`, `ref_no`, `product_id`, `qty`, `customer_id`, `total_amount`, `amount_tendered`, `amount_change`, `date_updated`) VALUES
+(4, '91084560\n', 8, 3, 1, 45, 0, 0, '2021-07-13 06:30:03'),
+(5, '48017429\n', 8, 1, 1, 15, 0, 0, '2021-07-13 06:30:42'),
+(6, '25023632\n', 8, 1, 1, 15, 0, 0, '2021-07-13 06:31:21');
 
 -- --------------------------------------------------------
 
@@ -291,7 +299,6 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `name`, `username`, `password`, `type`) VALUES
 (1, 'Administrator', 'admin', 'password', 1),
-(5, 'cashier', 'cashier', 'pasword', 2),
 (6, 'rasaq adeyanju', 'rasaq', 'rasaq', 1);
 
 --
@@ -378,7 +385,7 @@ ALTER TABLE `category_list`
 -- AUTO_INCREMENT for table `customer_list`
 --
 ALTER TABLE `customer_list`
-  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `expired_product`
@@ -390,7 +397,7 @@ ALTER TABLE `expired_product`
 -- AUTO_INCREMENT for table `inventory`
 --
 ALTER TABLE `inventory`
-  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT for table `product_list`
@@ -408,7 +415,7 @@ ALTER TABLE `receiving_list`
 -- AUTO_INCREMENT for table `sales_list`
 --
 ALTER TABLE `sales_list`
-  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `supplier_list`

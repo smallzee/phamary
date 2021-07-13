@@ -345,6 +345,16 @@ Class Action {
 		$data .= ", total_amount = '$tamount' ";
 		$data .= ", amount_tendered = '$amount_tendered' ";
 		$data .= ", amount_change = '$change' ";
+		//$data .=", product_id ='$drug'";
+
+		for ($i =0; $i < count($product_id); $i++){
+
+		    $drug_id = $product_id[$i];
+		    $qtys = $qty[$i];
+
+            $data .=", product_id ='$drug_id'";
+            $data .=", qty ='$qtys'";
+        }
 		
 		if(empty($id)){
 			$ref_no = sprintf("%'.08d\n", $ref_no);
@@ -387,7 +397,7 @@ Class Action {
 				$data .= ", qty = '$qty[$k]' ";
 				$data .= ", type = '2' ";
 				$data .= ", stock_from = 'Sales' ";
-				$details = json_encode(array('price'=>$price[$k],'qty'=>$qty[$k]));
+				$details = json_encode(array('qty'=>$qty[$k]));
 				$data .= ", other_details = '$details' ";
 				$data .= ", remarks = 'Stock out from Sales-".$ref_no."' ";
 
